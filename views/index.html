@@ -6,10 +6,7 @@
    {{range .}}
 
       <li>
-        {{.Name}} - {{.Price}}
-        {{ if lt .Stock 3 }}
-          - Stock hampir habis
-        {{ end }}
+        {{.Name}} - {{.Price}} - {{.StockStatus}}
       </li>
 
    {{end}}
