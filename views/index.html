@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golang Web</title>
+  <title>{{.title}}</title>
 
   <style>
     *{
@@ -20,12 +20,9 @@
   </style>
 </head>
 <body>
-  <marquee class="container" direction="down" behavior="alternate">
-    <marquee behavior="alternate">
-      <h3>Welcome to Homepage</h3>
-      <p>Hello, I'm learning Golang.</p>    
-    </marquee>
-  </marquee>
+  
+  <h3>Welcome to Homepage</h3>
+  <p>{{.content}}</p>
 
 
 </body>
