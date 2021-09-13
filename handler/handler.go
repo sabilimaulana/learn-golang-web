@@ -69,6 +69,16 @@ func ProductHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error is happening", http.StatusInternalServerError)
 		return
 	}
+}
 
-	// fmt.Fprintf(w, "Product page : %d", idNumber)
+func PostGet(w http.ResponseWriter, r *http.Request) {
+	method := r.Method
+	switch method {
+	case "GET":
+		w.Write([]byte("Ini adalah respon untuk method GET."))
+	case "POST":
+		w.Write([]byte("Ini adalah respon untuk method POST."))
+	default:
+		http.Error(w, "Error is happening", http.StatusBadRequest)
+	}
 }
