@@ -113,10 +113,26 @@ func ProcessHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		// name := r.Form.Get("name")
+		name := r.Form.Get("name")
 		message := r.Form.Get("message")
 
-		w.Write([]byte(message))
+		data := map[string]interface{}{
+			"name":    name,
+			"message": message,
+		}
+
+		tmpl, err := template.ParseFiles(path.Join("views", "result.html"), path.Join("views", "layout.html"))
+		if err != nil {
+			log.Println(err)
+			http.Error(w, "Error is happening", http.StatusInternalServerError)
+			return
+		}
+		err = tmpl.Execute(w, data)
+		if err != nil {
+			log.Println(err)
+			http.Error(w, "Error is happening", http.StatusInternalServerError)
+			return
+		}
 
 		return
 	}

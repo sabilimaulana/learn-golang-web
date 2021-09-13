@@ -1,4 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .shadow{
   box-shadow: 5px 5px #ababab;
   background-color: antiquewhite;
+  padding: 10px;
+}
+
+header{
+  margin-bottom: 10px;
+}
+
+footer{
+  margin-top: 10px;
 }
