@@ -22,9 +22,17 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := map[string]interface{}{
-		"title":   "Golang Web Basic",
-		"content": "Hello my name is Sabili Maulana",
+	// data := map[string]interface{}{
+	// 	"title":   "Golang Web Basic",
+	// 	"content": "Hello my name is Sabili Maulana",
+	// }
+
+	// data := entity.Product{ID: 1, Name: "Stratos", Price: 12000000, Stock: 17}
+
+	data := []entity.Product{
+		{ID: 1, Name: "Stratos", Price: 12000000, Stock: 17},
+		{ID: 2, Name: "Siskiu", Price: 8000000, Stock: 7},
+		{ID: 3, Name: "Clovis", Price: 5000000, Stock: 1},
 	}
 
 	err = tmpl.Execute(w, data)
@@ -58,11 +66,9 @@ func ProductHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// data := map[string]interface{}{
-	// 	"content": idNumber,
-	// }
-
-	data := entity.Product{ID: 1, Name: "Stratos", Price: 12000000, Stock: 17}
+	data := map[string]interface{}{
+		"content": idNumber,
+	}
 
 	err = tmpl.Execute(w, data)
 	if err != nil {
