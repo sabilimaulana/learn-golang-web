@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"golangweb/entity"
 	"html/template"
 	"log"
 	"net/http"
@@ -57,9 +58,11 @@ func ProductHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := map[string]interface{}{
-		"content": idNumber,
-	}
+	// data := map[string]interface{}{
+	// 	"content": idNumber,
+	// }
+
+	data := entity.Product{ID: 1, Name: "Stratos", Price: 12000000, Stock: 17}
 
 	err = tmpl.Execute(w, data)
 	if err != nil {
