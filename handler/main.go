@@ -2,7 +2,10 @@ package handler
 
 import (
 	"fmt"
+	"html/template"
+	"log"
 	"net/http"
+	"path"
 	"strconv"
 )
 
@@ -12,7 +15,19 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte("Welcome to Home Route."))
+	tmpl, err := template.ParseFiles(path.Join("views", "index.html"))
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "Error is happening", http.StatusInternalServerError)
+		return
+	}
+
+	err = tmpl.Execute(w, nil)
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "Error is happening", http.StatusInternalServerError)
+		return
+	}
 }
 
 func SabiliHandler(w http.ResponseWriter, r *http.Request) {
