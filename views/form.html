@@ -1,0 +1,24 @@
+{{template "layout" .}}
+{{define "main"}}
+
+
+
+<div class="shadow">
+  <form action="/process" method="post">
+    <div>
+      <label for="name">Nama kamu : </label>
+      <input type="text" name="name">
+    </div>
+
+    <div>
+      <label for="message">Pesan kamu : </label>
+      <input type="text" name="message">
+    </div>
+
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+
+{{end}}
